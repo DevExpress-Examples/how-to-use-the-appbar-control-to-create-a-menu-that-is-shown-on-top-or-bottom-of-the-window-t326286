@@ -1,0 +1,37 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
+        x:Class="AppBarExample.MainWindow"
+        Title="MainWindow" Height="350" Width="930" dx:ThemeManager.ThemeName="MetropolisLight">
+    <Grid>
+        <dxwui:AppBar x:Name="appBar" IsOpen="True" HideMode="Sticky" IsExitButtonEnabled="True">
+            <dxwui:AppBarButton Content="T" Label="Top" Click="OnMoveAppBarTop"/>
+            <dxwui:AppBarButton Content="B" Label="Bottom" Click="OnMoveAppBarBottom"/>
+            <dxwui:AppBarButton Label="Zoom in" Glyph="{dx:DXImageGrayscale Image=ZoomIn_32x32.png}" />
+            <dxwui:AppBarButton Label="Zoom out" Glyph="{dx:DXImageGrayscale Image=ZoomOut_32x32.png}" />
+            <dxwui:AppBarSeparator />
+            <dxwui:AppBarButton Label="Actual Size" Glyph="{dx:DXImageGrayscale Image=Zoom_32x32.png}" />
+            <dxwui:AppBarButton Label="Rotate" HorizontalAlignment="Right" Glyph="{dx:DXImage Image=DrillDown_32x32.png}" >
+                <dxwui:AppBarButton.Flyout>
+                    <dxwui:MenuFlyout ShowIndicator="True">
+                        <dxwui:MenuFlyoutItem Content="90° clockwise" />
+                        <dxwui:MenuFlyoutItem Content="90° counter clockwise" />
+                        <dxwui:MenuFlyoutSeparator />
+                        <dxwui:MenuFlyoutItem Content="Reset" />
+                    </dxwui:MenuFlyout>
+                </dxwui:AppBarButton.Flyout>
+            </dxwui:AppBarButton>
+            <dxwui:AppBarSeparator HorizontalAlignment="Right" />
+            <dxwui:AppBarToggleButton Label="Pin" HorizontalAlignment="Right">&#xE141;</dxwui:AppBarToggleButton>
+            <dxwui:AppBar.Resources>
+                <Style TargetType="dxwui:AppBarButton">
+                    <Setter Property="AllowGlyphTheming" Value="True" />
+                    <Setter Property="GlyphHeight" Value="24" />
+                </Style>
+            </dxwui:AppBar.Resources>
+        </dxwui:AppBar>
+
+    </Grid>
+</Window>
