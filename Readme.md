@@ -10,7 +10,7 @@
 * [MainWindow.xaml](./CS/AppBarExample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/AppBarExample/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/AppBarExample/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/AppBarExample/MainWindow.xaml.vb))
 <!-- default file list end -->
-# How to: Use the AppBar Control to Create a Menu That Is Shown on Top or Bottom of the Window
+# WPF AppBar - Display a top or bottom window menu inspired by Windows 10
 
 
 <p>This example shows how to create an app bar containing custom regular and toggle buttons, the predefined <em>Exit</em> button, and the button that displays a flyout when clicked.</p>
