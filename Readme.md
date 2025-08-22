@@ -4,23 +4,40 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+
+# WPF AppBar - Display a Top or Bottom Window Menu Inspired by Windows 10
+
+This example uses the WPF [`AppBar`](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar) control to display a Windows 10–style menu at the top or bottom of a window.
+ 
+Commands appear as circular buttons, including the built-in **Exit** command, the **Pin** command that works as a toggle, and the **Rotate** button that opens a flyout (context) menu with related actions. **Top** and **Bottom** buttons align the `AppBar` to the corresponding edge of the window.
+ 
+The [`AppBar.HideMode`](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar.HideMode) property is set to `Sticky` so the command bar remains visible until the user hides it manually with the **Exit** button.
+
+![ Display a Top or Bottom Window Menu Inspired by Windows 10 - WPF AppBar, DevExpress](./Images/app-bar.jpg)
+
+## Files to Review
 
 * [MainWindow.xaml](./CS/AppBarExample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/AppBarExample/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/AppBarExample/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/AppBarExample/MainWindow.xaml.vb))
-<!-- default file list end -->
-# WPF AppBar - Display a top or bottom window menu inspired by Windows 10
 
+## Documentation
 
-<p>This example shows how to create an app bar containing custom regular and toggle buttons, the predefined <em>Exit</em> button, and the button that displays a flyout when clicked.</p>
-<p>In this example, the <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIAppBartopic.aspx">AppBar</a> control is populated with the <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIAppBarButtontopic.aspx">AppBarButton</a> and <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIAppBarToggleButtontopic.aspx">AppBarToggleButton</a> objects, which are divided into groups using the <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIAppBarSeparatortopic.aspx">AppBarSeparator</a> objects. To display the predefined <em>Exit</em> button, the <a href="https://documentation.devexpress.com/WPF/DevExpressXpfWindowsUIAppBar_IsExitButtonEnabledtopic.aspx">IsExitButtonEnabled</a> property is set to <strong>True</strong>.</p>
-<p>The button captions are specified using the <a href="https://documentation.devexpress.com/WPF/DevExpressXpfWindowsUIAppBarButton_Labeltopic.aspx">AppBarButton.Label</a> property. The <strong>HorizontalAlignment</strong> property specifies the button alignment relative to the app bar.</p>
-<p>The <a href="https://documentation.devexpress.com/WPF/DevExpressXpfWindowsUICommandButton_Glyphtopic.aspx">CommandButton.Glyph</a> property is used to provide the buttons with icons from the DX Image Gallery. The glyph theming feature is enabled for all buttons and the glyph height is set using the Style declared in the app bar's <strong>Resources</strong>. You can also use the button's <strong>Content</strong> property to specify the button icons. See the <em>Pin</em> button — the icon for this button is specified using the Unicode symbol that corresponds to the glyph in the Segoe UI Symbol font. For more information about how to use Segoe UI Symbol icons, see <a href="https://msdn.microsoft.com/en-us/library/windows/apps/jj841126.aspx">Guidelines</a> on MSDN.</p>
-<p>The <em>Rotate</em> button displays the flyout when clicked. The button's <strong>Flyout</strong> property allows you associate the <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIFlyouttopic.aspx">Flyout</a> or <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIMenuFlyouttopic.aspx">MenuFlyout</a> control with the button.</p>
+* [AppBar](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar)
+* [AppBarButton](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBarButton)
+* [AppBarToggleButton](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBarToggleButton)
+* [AppBarSeparator](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBarSeparator)
+* [IsExitButtonEnabled](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar.IsExitButtonEnabled)
+* [AppBarButton.Label](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBarButton.Label)
+* [CommandButton.Glyph](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.CommandButton.Glyph)
+* [MenuFlyout](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.MenuFlyout)
 
-<br/>
+## More Examples
 
+* [WPF Data Grid – Specify Custom Content for Column Chooser Headers](https://github.com/DevExpress-Examples/wpf-data-grid-custom-content-for-column-chooser-headers)
+* [WPF Data Grid – Handle Drag and Drop Operations](https://github.com/DevExpress-Examples/wpf-grid-handle-drag-and-drop)
+* [WPF Data Grid – Bind to Dynamic Data](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data)
+* [WPF Scheduler - Filter Time Regions](https://github.com/DevExpress-Examples/wpf-scheduler-filter-time-regions)
+* [WPF Scheduler - Apply User Restrictions](https://github.com/DevExpress-Examples/wpf-scheduler-apply-end-user-restrictions)
 
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
