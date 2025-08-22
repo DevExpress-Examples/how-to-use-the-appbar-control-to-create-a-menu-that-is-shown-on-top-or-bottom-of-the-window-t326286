@@ -7,58 +7,13 @@
 
 # WPF AppBar - Display a Top or Bottom Window Menu Inspired by Windows 10
 
-This example adds an [`AppBar`](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar) to a WPF application and allows users to place primary commands at the top or bottom of the window. The bar contains standard and toggle buttons, groups related actions, includes a built-in **Exit** button and a button with a flyout (context) menu.
+This example uses the WPF [`AppBar`](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar) control to display a Windows 10–style menu at the top or bottom of a window.
+ 
+Commands appear as circular buttons, including the built-in **Exit** command, the **Pin** command that works as a toggle, and the **Rotate** button that opens a flyout (context) menu with related actions. **Top** and **Bottom** buttons align the `AppBar` to the corresponding edge of the window.
+ 
+The [`AppBar.HideMode`](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar.HideMode) property is set to `Sticky` so the command bar remains visible until the user hides it manually with the **Exit** button.
 
 ![ Display a Top or Bottom Window Menu Inspired by Windows 10 - WPF AppBar, DevExpress](./Images/app-bar.jpg)
-
-## Implementation Details
-
-If you set the [`AppBar.HideMode`](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar.HideMode) property to `Sticky`, the `AppBar` remains visible until a user hides it manually through the **Exit** button. To display the predefined **Exit** button, enable the [IsExitButtonEnabled](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar.IsExitButtonEnabled). The following XAML markup configures bar layout, visibility, and command structure:
-
-```xaml
-<dxwui:AppBar ... 
-              IsOpen="True" 
-              HideMode="Sticky" 
-              IsExitButtonEnabled="True">
-    <!-- Define "Top" and "Bottom" buttons -->
-    <dxwui:AppBarButton Content="T" Label="Top" Click="OnMoveAppBarTop"/>
-    <dxwui:AppBarButton Content="B" Label="Bottom" Click="OnMoveAppBarBottom"/>
-
-    !-- Define "Zoom in" and "Zoom out" buttons -->
-    <dxwui:AppBarButton Label="Zoom in" Glyph="{dx:DXImageGrayscale Image=ZoomIn_32x32.png}" />
-    <dxwui:AppBarButton Label="Zoom out" Glyph="{dx:DXImageGrayscale Image=ZoomOut_32x32.png}" />
-    <dxwui:AppBarSeparator />
-
-    <!-- Define "Actual Size" and "Rotate" buttons -->
-    <dxwui:AppBarButton Label="Actual Size" Glyph="{dx:DXImageGrayscale Image=Zoom_32x32.png}" />
-    <dxwui:AppBarButton Label="Rotate" HorizontalAlignment="Right" Glyph="{dx:DXImage Image=DrillDown_32x32.png}" >
-        <!-- Define the Flyout control that appears when a user clicks the "Rotate" button-->
-        <dxwui:AppBarButton.Flyout>
-            <dxwui:MenuFlyout ShowIndicator="True">
-                <dxwui:MenuFlyoutItem Content="90° clockwise" />
-                <dxwui:MenuFlyoutItem Content="90° counter clockwise" />
-                <dxwui:MenuFlyoutSeparator />
-                <dxwui:MenuFlyoutItem Content="Reset" />
-            </dxwui:MenuFlyout>
-        </dxwui:AppBarButton.Flyout>
-    </dxwui:AppBarButton>
-
-    <dxwui:AppBarSeparator HorizontalAlignment="Right" />
-    <dxwui:AppBarToggleButton Label="Pin" HorizontalAlignment="Right">&#xE141;</dxwui:AppBarToggleButton>
-</dxwui:AppBar>
-```
-
-**Top** and **Bottom** buttons move the `AppBar` to the corresponding edge of the window. Each button is bound to the corresponding handler:
-
-```csharp
-private void OnMoveAppBarTop(object sender, RoutedEventArgs e) {
-    appBar.Alignment = AppBarAlignment.Top;
-}
-
-private void OnMoveAppBarBottom(object sender, RoutedEventArgs e) {
-    appBar.Alignment = AppBarAlignment.Bottom;
-}
-```
 
 ## Files to Review
 
@@ -75,6 +30,14 @@ private void OnMoveAppBarBottom(object sender, RoutedEventArgs e) {
 * [AppBarButton.Label](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBarButton.Label)
 * [CommandButton.Glyph](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.CommandButton.Glyph)
 * [MenuFlyout](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.MenuFlyout)
+
+## More Examples
+
+* [WPF Data Grid – Specify Custom Content for Column Chooser Headers](https://github.com/DevExpress-Examples/wpf-data-grid-custom-content-for-column-chooser-headers)
+* [WPF Data Grid – Handle Drag and Drop Operations](https://github.com/DevExpress-Examples/wpf-grid-handle-drag-and-drop)
+* [WPF Data Grid – Bind to Dynamic Data](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data)
+* [WPF Scheduler - Filter Time Regions](https://github.com/DevExpress-Examples/wpf-scheduler-filter-time-regions)
+* [WPF Scheduler - Apply User Restrictions](https://github.com/DevExpress-Examples/wpf-scheduler-apply-end-user-restrictions)
 
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
