@@ -4,23 +4,77 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+
+# WPF AppBar - Display a Top or Bottom Window Menu Inspired by Windows 10
+
+This example adds an [`AppBar`](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar) to a WPF application and allows users to place primary commands at the top or bottom of the window. The bar contains standard and toggle buttons, groups related actions, includes a built-in **Exit** button and a button with a flyout (context) menu.
+
+![ Display a Top or Bottom Window Menu Inspired by Windows 10 - WPF AppBar, DevExpress](./Images/app-bar.jpg)
+
+## Implementation Details
+
+If you set the [`AppBar.HideMode`](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar.HideMode) property to `Sticky`, the `AppBar` remains visible until a user hides it manually through the **Exit** button. To display the predefined **Exit** button, enable the [IsExitButtonEnabled](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar.IsExitButtonEnabled). The following XAML markup configures bar layout, visibility, and command structure:
+
+```xaml
+<dxwui:AppBar ... 
+              IsOpen="True" 
+              HideMode="Sticky" 
+              IsExitButtonEnabled="True">
+    <!-- Define "Top" and "Bottom" buttons -->
+    <dxwui:AppBarButton Content="T" Label="Top" Click="OnMoveAppBarTop"/>
+    <dxwui:AppBarButton Content="B" Label="Bottom" Click="OnMoveAppBarBottom"/>
+
+    !-- Define "Zoom in" and "Zoom out" buttons -->
+    <dxwui:AppBarButton Label="Zoom in" Glyph="{dx:DXImageGrayscale Image=ZoomIn_32x32.png}" />
+    <dxwui:AppBarButton Label="Zoom out" Glyph="{dx:DXImageGrayscale Image=ZoomOut_32x32.png}" />
+    <dxwui:AppBarSeparator />
+
+    <!-- Define "Actual Size" and "Rotate" buttons -->
+    <dxwui:AppBarButton Label="Actual Size" Glyph="{dx:DXImageGrayscale Image=Zoom_32x32.png}" />
+    <dxwui:AppBarButton Label="Rotate" HorizontalAlignment="Right" Glyph="{dx:DXImage Image=DrillDown_32x32.png}" >
+        <!-- Define the Flyout control that appears when a user clicks the "Rotate" button-->
+        <dxwui:AppBarButton.Flyout>
+            <dxwui:MenuFlyout ShowIndicator="True">
+                <dxwui:MenuFlyoutItem Content="90° clockwise" />
+                <dxwui:MenuFlyoutItem Content="90° counter clockwise" />
+                <dxwui:MenuFlyoutSeparator />
+                <dxwui:MenuFlyoutItem Content="Reset" />
+            </dxwui:MenuFlyout>
+        </dxwui:AppBarButton.Flyout>
+    </dxwui:AppBarButton>
+
+    <dxwui:AppBarSeparator HorizontalAlignment="Right" />
+    <dxwui:AppBarToggleButton Label="Pin" HorizontalAlignment="Right">&#xE141;</dxwui:AppBarToggleButton>
+</dxwui:AppBar>
+```
+
+**Top** and **Bottom** buttons move the `AppBar` to the corresponding edge of the window. Each button is bound to the corresponding handler:
+
+```csharp
+private void OnMoveAppBarTop(object sender, RoutedEventArgs e) {
+    appBar.Alignment = AppBarAlignment.Top;
+}
+
+private void OnMoveAppBarBottom(object sender, RoutedEventArgs e) {
+    appBar.Alignment = AppBarAlignment.Bottom;
+}
+```
+
+## Files to Review
 
 * [MainWindow.xaml](./CS/AppBarExample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/AppBarExample/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/AppBarExample/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/AppBarExample/MainWindow.xaml.vb))
-<!-- default file list end -->
-# WPF AppBar - Display a top or bottom window menu inspired by Windows 10
 
+## Documentation
 
-<p>This example shows how to create an app bar containing custom regular and toggle buttons, the predefined <em>Exit</em> button, and the button that displays a flyout when clicked.</p>
-<p>In this example, the <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIAppBartopic.aspx">AppBar</a> control is populated with the <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIAppBarButtontopic.aspx">AppBarButton</a> and <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIAppBarToggleButtontopic.aspx">AppBarToggleButton</a> objects, which are divided into groups using the <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIAppBarSeparatortopic.aspx">AppBarSeparator</a> objects. To display the predefined <em>Exit</em> button, the <a href="https://documentation.devexpress.com/WPF/DevExpressXpfWindowsUIAppBar_IsExitButtonEnabledtopic.aspx">IsExitButtonEnabled</a> property is set to <strong>True</strong>.</p>
-<p>The button captions are specified using the <a href="https://documentation.devexpress.com/WPF/DevExpressXpfWindowsUIAppBarButton_Labeltopic.aspx">AppBarButton.Label</a> property. The <strong>HorizontalAlignment</strong> property specifies the button alignment relative to the app bar.</p>
-<p>The <a href="https://documentation.devexpress.com/WPF/DevExpressXpfWindowsUICommandButton_Glyphtopic.aspx">CommandButton.Glyph</a> property is used to provide the buttons with icons from the DX Image Gallery. The glyph theming feature is enabled for all buttons and the glyph height is set using the Style declared in the app bar's <strong>Resources</strong>. You can also use the button's <strong>Content</strong> property to specify the button icons. See the <em>Pin</em> button — the icon for this button is specified using the Unicode symbol that corresponds to the glyph in the Segoe UI Symbol font. For more information about how to use Segoe UI Symbol icons, see <a href="https://msdn.microsoft.com/en-us/library/windows/apps/jj841126.aspx">Guidelines</a> on MSDN.</p>
-<p>The <em>Rotate</em> button displays the flyout when clicked. The button's <strong>Flyout</strong> property allows you associate the <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIFlyouttopic.aspx">Flyout</a> or <a href="https://documentation.devexpress.com/WPF/clsDevExpressXpfWindowsUIMenuFlyouttopic.aspx">MenuFlyout</a> control with the button.</p>
-
-<br/>
-
+* [AppBar](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar)
+* [AppBarButton](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBarButton)
+* [AppBarToggleButton](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBarToggleButton)
+* [AppBarSeparator](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBarSeparator)
+* [IsExitButtonEnabled](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBar.IsExitButtonEnabled)
+* [AppBarButton.Label](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.AppBarButton.Label)
+* [CommandButton.Glyph](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.CommandButton.Glyph)
+* [MenuFlyout](https://docs.devexpress.com/WPF/DevExpress.Xpf.WindowsUI.MenuFlyout)
 
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
