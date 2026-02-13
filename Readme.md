@@ -23,7 +23,7 @@
 
 
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-use-the-appbar-control-to-create-a-menu-that-is-shown-on-top-or-bottom-of-the-window-t326286&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-use-the-appbar-control-to-create-a-menu-that-is-shown-on-top-or-bottom-of-the-window-t326286&~~~was_helpful=no)
 
